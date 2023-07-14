@@ -88,6 +88,13 @@ function Navbar() {
                 >
                   Networking Devices
                 </Link>
+                <Link
+                  to="/tvs"
+                  className="dropdown-item"
+                  onClick={handleAccountItemClick}
+                >
+                Tv's & Audios
+                </Link>
               </div>
             )}
           </div>
