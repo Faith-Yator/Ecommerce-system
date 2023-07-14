@@ -2,7 +2,6 @@ import { useState } from 'react'
 import{BrowserRouter, Route, Routes} from 'react-router-dom' 
 import './App.css'
 import Navbar from './components/Navbar'
-import Sidenav from './pages/Sidenav'
 import Footer from './components/Footer'
 import OrderManagement from './pages/OrderManagement'
 import Computer from './pages/Computer'
@@ -38,9 +37,8 @@ function App () {
      <BrowserRouter>
      <Navbar/>
     
-    
      <Routes>
-      <Route path='/sidenav' element={<Sidenav/>} />
+    
       <Route path='/adminlogin' element={<AdminLogIn/>} />
       <Route path='/' element={<Home />}/>
       <Route path='/computer' element={<Computer/>}/>
