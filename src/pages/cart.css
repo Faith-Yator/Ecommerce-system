@@ -1,0 +1,33 @@
+.main-cart {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  width: 97%;
+  height: 100%;
+  background: cover;
+}
+
+.cart-content1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.cart-icon {
+  font-size: 5rem;
+  color: orange;
+}
+
+.cart-content2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.cart-content2 button {
+  padding: 15px;
+}
