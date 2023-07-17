@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
+import Axios from 'axios';
 
 function SignIn() {
   const navigate = useNavigate();
@@ -23,9 +24,20 @@ function SignIn() {
 
   // Handle form submission
   const handleSubmission = (data) => {
+    Axios.post('http://localhost:3000/auth/SignIn', data)
+    .then((response) => {
+      console.log(response.data);
+      reset();
+      alert('Logged in Successfully');
+      navigate("/login");
+    })
+    
+    .catch((error) => {
+      alert("Invalid details or user not registered");
+      console.error(error);
+    });
     console.log(data);
-    reset();
-    navigate('/login');
+   
   };
 
   return (

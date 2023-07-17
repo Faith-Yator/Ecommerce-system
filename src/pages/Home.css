@@ -95,10 +95,10 @@
 
     75% {
       
-      background-image: url('../computers/1.jpg');
+      background-image: url('./computers/1.jpg');
     }
     100% {
-      background-image: url('../assets/tv/1.jpg');
+      background-image: url('.\tv\1.jpg');
   }
 }
   

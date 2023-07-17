@@ -1,152 +1,168 @@
+import React, { useContext } from 'react';
 
-import './smartphone.css'
-import { useNavigate } from 'react-router-dom'
+import './homeappliances.css';
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from './Context/CartContext';
 
-function Smartphones() {
-  const navigate = useNavigate();
+// Manual product data
+const products = [
+    {
+        id: 1,
+        title: 'XIAOMI',
+        price: 'KSh 22,399',
+        image: './phone/1 (1).jpg',
+      },
+      {
+        id: 1,
+        title: 'Techno Spark',
+        price: 'KSh 22,399',
+        image: './phone/1 (2).jpg',
+      },
+      {
+        id: 1,
+        title: 'XIAOMI',
+        price: 'KSh 22,399',
+        image: './phone/1 (3).jpg',
+      },
+      {
+        id: 1,
+        title: 'OPPO',
+        price: 'KSh 22,399',
+        image: './phone/1 (4).jpg',
+      },
+      {
+        id: 1,
+        title: 'XIAOMI',
+        price: 'KSh 22,399',
+        image: './phone/1 (5).jpg',
+      },
+      {
+        id: 1,
+        title: 'XIAOMI',
+        price: 'KSh 22,399',
+        image: './phone/1 (19).jpg',
+      },
+      {
+        id: 1,
+        title: 'Tecno',
+        price: 'KSh 22,399',
+        image: './phone/1 (6).jpg',
+      },
+      {
+        id: 1,
+        title: 'Sumsang',
+        price: 'KSh 22,399',
+        image: './phone/1 (7).jpg',
+      },
+      {
+        id: 1,
+        title: 'XIAOMI',
+        price: 'KSh 22,399',
+        image: './phone/1 (8).jpg',
+      },
+      {
+        id: 1,
+        title: 'Tecno Spark',
+        price: 'KSh 22,399',
+        image: './phone/1 (9).jpg',
+      },
+      {
+        id: 1,
+        title: 'XIAOMI',
+        price: 'KSh 22,399',
+        image: './phone/1 (10).jpg',
+      },
+      {
+        id: 1,
+        title: 'Tecno',
+        price: 'KSh 22,399',
+        image: './phone/1 (11).jpg',
+      },
+      {
+        id: 1,
+        title: 'Nokia',
+        price: 'KSh 22,399',
+        image: './phone/1 (12).jpg',
+      },
+      {
+        id: 1,
+        title: 'XIAOMI',
+        price: 'KSh 22,399',
+        image: './phone/1 (13).jpg',
+      },
+      {
+        id: 1,
+        title: 'Itel',
+        price: 'KSh 22,399',
+        image: './phone/1 (14).jpg',
+      },
+      {
+        id: 1,
+        title: 'Generic Tablet',
+        price: 'KSh 22,399',
+        image: './phone/1 (15).jpg',
+      },
+      {
+        id: 1,
+        title: 'Generic Tablet',
+        price: 'KSh 22,399',
+        image: './phone/1 (16).jpg',
+      },
+      {
+        id: 1,
+        title: 'Generic Tablet',
+        price: 'KSh 22,399',
+        image: './phone/1 (17).jpg',
+      },
+      {
+        id: 1,
+        title: 'Generic Tablet',
+        price: 'KSh 22,399',
+        image: './phone/1 (18).jpg',
+      },
+      {
+        id: 1,
+        title: 'Generic Tablet',
+        price: 'KSh 22,399',
+        image: './phone/1 (19).jpg',
+      },
+];
 
-  const handleCardClick = (page) => {
-    navigate(page);
-  };
-  return (
-    <div>
-           
-    <h1>SmartPhones & Tablets</h1>
-    <div className='smartphone'>
-       
-        <div className="card">
-      <img src=".\phone\1 (1).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 128GB + 8GB, 50MP, Dual SIM, 5000mAh <br/>
-KSh 23,399</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-
-      <div className="card">
-      <img src=".\phone\1 (2).jpg" alt="Card" className="card-image" />
-      <h3>XIAOMI</h3>
-          <p>XIAOMI Redmi A1+, 6.52", 2GB+32GB, 8.0MP, 5000mAh, 4G <br/>
-KSh 9,799</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-
-      <div className="card">
-      <img src=".\phone\1 (3).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 128GB + 8GB, 50MP, Dual SIM, 5000mAh <br/>
-KSh 23,399</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (4).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 256GB+8GB,(Dual SIM),5000mAh<br/>
-KSh 23,199.</p>      <button className="card-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (5).jpg" alt="Card" className="card-image" />
-      <h3>XIAOMI</h3>
-          <p>XIAOMI Redmi A1+, 6.52", 2GB+32GB, 8.0MP, 5000mAh, 4G <br/>
-KSh 9,799</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      
-      <div className="card">
-      <img src=".\phone\1 (6).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 128GB + 8GB, 50MP, Dual SIM, 5000mAh <br/>
-KSh 23,399</p>      <button className="card-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (7).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 256GB+8GB,(Dual SIM),5000mAh<br/>
-KSh 23,199.</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (1).jpg" alt="Card" className="card-image" />
-      <h3>XIAOMI</h3>
-          <p>XIAOMI Redmi A1+, 6.52", 2GB+32GB, 8.0MP, 5000mAh, 4G <br/>
-KSh 9,799</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (8).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 128GB + 8GB, 50MP, Dual SIM, 5000mAh <br/>
-KSh 23,399</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (9).jpg" alt="Card" className="card-image" />
-      <h3>XIAOMI</h3>
-          <p>XIAOMI Redmi A1+, 6.52", 2GB+32GB, 8.0MP, 5000mAh, 4G <br/>
-KSh 9,799</p>      <button className="card-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (10).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 128GB + 8GB, 50MP, Dual SIM, 5000mAh <br/>
-KSh 23,399</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (11).jpg" alt="Card" className="card-image" />
-      <h3>XIAOMI</h3>
-          <p>XIAOMI Redmi A1+, 6.52", 2GB+32GB, 8.0MP, 5000mAh, 4G <br/>
-KSh 9,799</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (12).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 256GB+8GB,(Dual SIM),5000mAh<br/>
-KSh 23,199.</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (13).jpg" alt="Card" className="card-image" />
-      <h3>XIAOMI</h3>
-          <p>XIAOMI Redmi A1+, 6.52", 2GB+32GB, 8.0MP, 5000mAh, 4G <br/>
-KSh 9,799</p>      <button className="card-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (14).jpg" alt="Card" className="card-image" />
-      <h3>Tecno Spark</h3>
-          <p>Tecno Spark 10 Pro, 6.8", 128GB + 8GB, 50MP, Dual SIM, 5000mAh <br/>
-KSh 23,399</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (15).jpg" alt="Card" className="card-image" />
-      <h3>GENERIC TABLET</h3>
-          <p>Generic 10.1" Tablet 8GB RAM-128GB ROM 4G Full Netcom 5GWIFI <br/>
-KSh 16,775
-</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (16).jpg" alt="Card" className="card-image" />
-      <h3>GENERIC TABLET</h3>
-          <p>Generic 10.1" Tablet 8GB RAM-128GB ROM 4G Full Netcom 5GWIFI <br/>
-KSh 18,995
-</p>      <button className="card-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (17).jpg" alt="Card" className="card-image" />
-      <h3>GENERIC TABLET</h3>
-          <p>Generic 10.1" Tablet 8GB RAM-128GB ROM 4G Full Netcom 5GWIFI <br/>
-KSh 16,995
-</p>      <button className="card-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (18).jpg" alt="Card" className="card-image" />
-      <h3>GENERIC TABLET</h3>
-          <p>Generic 10.1" Tablet 8GB RAM-128GB ROM 4G Full Netcom 5GWIFI <br/>
-KSh 17,995
-</p>      <button className="card-button" onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
-      <div className="card">
-      <img src=".\phone\1 (19).jpg" alt="Card" className="card-image" />
-      <h3>GENERIC TABLET</h3>
-          <p>Generic 10.1" Tablet 8GB RAM-128GB ROM 4G Full Netcom 5GWIFI <br/>
-KSh 16,995
-</p>      <button className="card-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
-      </div>
+function SmartPhones() {
+      const navigate = useNavigate();
+      const { addToCart } = useContext(CartContext);
     
-  </div>
-      
-    </div>
-  )
-}
-
-export default Smartphones
+      const handleCardClick = (page) => {
+        navigate(page);
+      };
+    
+      const handleAddToCart = (product) => {
+        addToCart(product);
+      };
+    
+      return (
+        <div>
+          <h1>SmartPhone & Tables</h1>
+          <div className="smartphone">
+            {products.map((product) => (
+              <div className="card" key={product.id}>
+                <img src={product.image} alt="Card" className="card-image" />
+                <p>{product.title}</p>
+                <h3>{product.price}</h3>
+                <button
+                  className="card-button"
+                  onClick={() => {
+                    handleAddToCart(product);
+                    handleCardClick('');
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    
+    export default SmartPhones;
