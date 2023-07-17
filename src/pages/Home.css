@@ -8,7 +8,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 16px;
-    background-image: url("../help/delivery.png");
+   background-image: url(./phone/1.jpg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 16px;
     height: 50%;
@@ -82,15 +82,15 @@
 
     0%,
     100% {
-        background-image: url('../home/1.jpg');
+        background-image: url('./home/1.jpg');
     }
 
     25% {
-        background-image: url('../phone/1.jpg');
+        background-image: url('./phone/1.jpg');
     }
 
     50% {
-        background-image: url('../assets/tv/1.jpg');
+        background-image: url('./tv/1.jpg');
     }
 
     75% {

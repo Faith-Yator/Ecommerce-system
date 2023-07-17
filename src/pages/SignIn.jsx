@@ -13,7 +13,7 @@ function SignIn() {
     username: yup.string().required('Use any preferred username'),
     email: yup.string().email().required('Email is required'),
     password: yup.string().min(4).max(10).required('Password is required'),
-    confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match'),
+   
   });
 
   // Initialize react-hook-form with the validation schema
@@ -51,10 +51,6 @@ function SignIn() {
             <label>Password</label><br /><br />
             <input type='password' placeholder='Password' {...register('password')} /><br />
             <p>{errors.password?.message}</p><br />
-
-            <label>Confirm Password</label><br /><br />
-            <input type="password" placeholder='Confirm Password' {...register('confirmPassword')} /><br />
-            <p>{errors.confirmPassword?.message}</p><br />
 
             <input type='submit' value='SignIn' style={{ width: '50%', color: 'white', backgroundColor: 'orange', fontWeight: 'bolder', padding: "10px" }} />
           </form>
