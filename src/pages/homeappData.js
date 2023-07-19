@@ -172,7 +172,7 @@ const  homeappData = [
         id: 20,
         title: 'Refrigerator',
         price: 'KSh 47399',
-        image: './home/1 (8).jpg',
+        image: './home/1 (7).jpg',
         description:'laptop with',
         buttonText: 'Add to Cart',
         buttonLink:'/cart'
