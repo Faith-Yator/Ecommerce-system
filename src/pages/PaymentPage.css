@@ -1,6 +1,7 @@
 .payment-page {
     text-align: center;
     margin: 20px;
+    
   }
   
   .payment-form {
@@ -26,19 +27,17 @@
     font-size: 16px;
   }
   
-  .expiry-cvv {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
+
   .submit-button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: orange;
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+  }
+  .submit-button :hover{
+    background-color: orangered;
   }
   

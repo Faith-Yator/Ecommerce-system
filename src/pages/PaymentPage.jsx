@@ -1,79 +1,73 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import './PaymentPage.css';
+import { useNavigate } from 'react-router-dom';
+
+const schema = yup.object().shape({
+  cardNumber: yup.string().required('Card Number is required'),
+  username: yup.string().required('Username is required'),
+  productName: yup.string().required('Product Name is required'),
+  amount: yup.string().typeError('Amount must be a number').required('Amount is required'),
+});
 
 function PaymentPage() {
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardHolder, setCardHolder] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvv, setCvv] = useState('');
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors },reset } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-  const handleCardNumberChange = (e) => {
-    setCardNumber(e.target.value);
-  };
-
-  const handleCardHolderChange = (e) => {
-    setCardHolder(e.target.value);
-  };
-
-  const handleExpiryDateChange = (e) => {
-    setExpiryDate(e.target.value);
-  };
-
-  const handleCvvChange = (e) => {
-    setCvv(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
     // Perform payment processing logic here
-    console.log('Payment submitted');
+    console.log('Payment submitted:', data);
+    navigate('/');
+    reset();
   };
 
   return (
     <div className="payment-page">
       <h1>Payment</h1>
-      <form className="payment-form" onSubmit={handleSubmit}>
+      <form className="payment-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label htmlFor="cardNumber">Card Number</label>
           <input
             type="text"
             id="cardNumber"
-            value={cardNumber}
-            onChange={handleCardNumberChange}
+            {...register('cardNumber')}
             placeholder="Enter card number"
           />
+          {errors.cardNumber && <p className="error-message">{errors.cardNumber.message}</p>}
         </div>
         <div className="form-group">
-          <label htmlFor="cardHolder">Card Holder</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
-            id="cardHolder"
-            value={cardHolder}
-            onChange={handleCardHolderChange}
-            placeholder="Enter card holder name"
+            id="username"
+            {...register('username')}
+            placeholder="Enter Username"
           />
+          {errors.username && <p className="error-message">{errors.username.message}</p>}
         </div>
-        <div className="expiry-cvv">
-          <div className="form-group">
-            <label htmlFor="expiryDate">Expiry Date</label>
-            <input
-              type="text"
-              id="expiryDate"
-              value={expiryDate}
-              onChange={handleExpiryDateChange}
-              placeholder="MM/YY"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="cvv">CVV</label>
-            <input
-              type="text"
-              id="cvv"
-              value={cvv}
-              onChange={handleCvvChange}
-              placeholder="Enter CVV"
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="productName">Product Name</label>
+          <input
+            type="text"
+            id="productName"
+            {...register('productName')}
+            placeholder="Enter Product Name"
+          />
+          {errors.productName && <p className="error-message">{errors.productName.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="amount">Amount</label>
+          <input
+            type="text"
+            id="amount"
+            {...register('amount')}
+            placeholder="Enter Amount"
+          />
+          {errors.amount && <p className="error-message">{errors.amount.message}</p>}
         </div>
         <button type="submit" className="submit-button">Pay Now</button>
       </form>

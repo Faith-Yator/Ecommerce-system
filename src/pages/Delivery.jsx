@@ -11,7 +11,7 @@ function Delivery(){
 
   const add = () => {
     setUsers([...users, newUser]);
-    setNewUser({ ProductName: '', OrderNumber: '', UserName: '',Location: ''});
+    setNewUser({  Username: '', Ordernumber: '',Productname: '',Location: ''});
   };
 
   return (
@@ -19,9 +19,9 @@ function Delivery(){
       <table className="table">
         <thead>
           <tr>
-            <th>UserName</th>
-            <th>OrderNumber</th>
-            <th>ProductName</th>
+            <th>Username</th>
+            <th>Ordernumber</th>
+            <th>Productname</th>
             <th>Location</th>
           </tr>
         </thead>

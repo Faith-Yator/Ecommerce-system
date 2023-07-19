@@ -104,7 +104,7 @@ const products = [
     },
     {
       id: 1,
-      title: 'DELL OptiPlex 790 SFF Intel Core I3 3.3GHz -4GB DDR3',
+      title: 'DELL OptiPlex 790 SFF<br/> Intel Core I3 3.3GHz -4GB DDR3',
       price: 'KSh 17,999',
       image: './computers/1 (16).jpg',
     },
@@ -116,7 +116,7 @@ const products = [
     },
     {
       id: 1,
-      title: 'DELL OptiPlex 790 SFF Intel Core I3 3.3GHz -4GB DDR3',
+      title: 'DELL OptiPlex 790 SFF Intel',
       price: 'KSh 17,999',
       image: './computers/1 (18).jpg',
     },

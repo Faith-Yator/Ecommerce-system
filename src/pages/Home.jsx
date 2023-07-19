@@ -19,7 +19,7 @@ function Home() {
       <div className="featured-products">
         <h2>Featured Products</h2>
         <div className='tv'>
-          <h2>Home Appliances</h2>
+          <h2>Refridgerators</h2>
         {/* <div className="card">
           <img src="./src/home/1 (1).jpg" alt="Product 1" />
           <h3>Refridgerator</h3>

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { CartContext } from './Context/CartContext';
 import { Link } from 'react-router-dom';
-import { BsCart3 } from 'react-icons/bs'
-import './cart.css'
+import { BsCart3 } from 'react-icons/bs';
+import './cart.css';
 
 function Cart() {
   const { cartItems, addToCart, removeFromCart, clearCart } = useContext(CartContext);
@@ -32,8 +32,8 @@ function Cart() {
     <div>
       <h1>Cart</h1>
       {cartItems.length === 0 ? (
-        <div>
-        <BsCart3 className='cart-icon'/>
+        <div className='cart'>
+          <BsCart3 className='cart-icon' />
           <p>Your cart is empty.</p>
           <button>
             <Link to="/">Go to Home Page</Link>
@@ -41,16 +41,37 @@ function Cart() {
         </div>
       ) : (
         <div>
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item.id}>
-                {item.title} - {item.price} - Quantity: {item.quantity}
-                <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
-              </li>
-            ))}
-          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <img src={item.image} alt={item.title} className="cart-item-image" />
+                    {item.title}
+                  </td>
+                  <td>{item.price}</td>
+                  <td>
+                    <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           <p>Total Price: KSh {calculateTotalPrice()}</p>
           <button onClick={handleClearCart}>Clear Cart</button>
+          <Link to="/payment">
+            <button>Proceed to Payment</button>
+          </Link>
+          <Link to="/">
+            <button>Continue Shopping</button>
+          </Link>
         </div>
       )}
     </div>

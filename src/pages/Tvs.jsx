@@ -142,7 +142,7 @@ function Tvs() {
     
       return (
         <div>
-          <h1>SmartPhone & Tables</h1>
+          <h1>Televisions & Audios</h1>
           <div className="smartphone">
             {products.map((product) => (
               <div className="card" key={product.id}>

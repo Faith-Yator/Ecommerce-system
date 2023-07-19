@@ -24,20 +24,9 @@ function SignIn() {
 
   // Handle form submission
   const handleSubmission = (data) => {
-    Axios.post('http://localhost:3000/auth/SignIn', data)
-    .then((response) => {
-      console.log(response.data);
-      reset();
-      alert('Logged in Successfully');
-      navigate("/login");
-    })
-    
-    .catch((error) => {
-      alert("Invalid details or user not registered");
-      console.error(error);
-    });
     console.log(data);
-   
+    reset();
+    navigate("/login");
   };
 
   return (
