@@ -1,77 +1,78 @@
 import React, { useContext } from 'react';
-import { CartContext } from './Context/CartContext';
 import { Link } from 'react-router-dom';
 import { BsCart3 } from 'react-icons/bs';
-import './cart.css';
+import { IoMdTrash } from 'react-icons/io';
+import './Cart.css';
+import { CartContext } from './Context/CartContext.jsx';
 
 function Cart() {
-  const { cartItems, addToCart, removeFromCart, clearCart } = useContext(CartContext);
+  const { state, dispatch } = useContext(CartContext);
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
+  const total = state.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
+  const handleIncrease = (item) => {
+    dispatch({ type: 'INCREASE', payload: item });
   };
 
-  const handleRemoveFromCart = (productId) => {
-    removeFromCart(productId);
+  const handleDecrease = (item) => {
+    if (item.quantity > 1) {
+      dispatch({ type: 'DECREASE', payload: item });
+    } else {
+      dispatch({ type: 'REMOVE', payload: item });
+    }
   };
 
-  const handleClearCart = () => {
-    clearCart();
-  };
-
-  const calculateTotalPrice = () => {
-    let totalPrice = 0;
-    cartItems.forEach((item) => {
-      const price = parseFloat(item.price.substring(4)); // Remove the "KSh " prefix and convert to a number
-      totalPrice += price * item.quantity;
-    });
-    return totalPrice.toFixed(2); // Round to 2 decimal places
+  const handleRemove = (item) => {
+    dispatch({ type: 'REMOVE', payload: item });
   };
 
   return (
-    <div>
-      <h1>Cart</h1>
-      {cartItems.length === 0 ? (
-        <div className='cart'>
+    <div className='main-cart'>
+      {state.length === 0 ? (
+        <div className='cart-content1'>
           <BsCart3 className='cart-icon' />
-          <p>Your cart is empty.</p>
-          <button>
-            <Link to="/">Go to Home Page</Link>
-          </button>
+          <br />
+          <br />
+          <div className='cart-content2'>
+            <h1>Your Cart Is Empty!!</h1>
+            <pre>Browse our categories and discover our best and most affordable deals</pre>
+            <br />
+            <br />
+            <button className='cart-btn'>
+              <Link to='/'>Continue Shopping</Link>
+            </button>
+          </div>
         </div>
       ) : (
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Price</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map((item) => (
-                <tr key={item.id}>
-                  <td>
-                    <img src={item.image} alt={item.title} className="cart-item-image" />
-                    {item.title}
-                  </td>
-                  <td>{item.price}</td>
-                  <td>
-                    <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p>Total Price: KSh {calculateTotalPrice()}</p>
-          <button onClick={handleClearCart}>Clear Cart</button>
-          <Link to="/payment">
-            <button>Proceed to Payment</button>
-          </Link>
-          <Link to="/">
-            <button>Continue Shopping</button>
-          </Link>
+        <div className='cart-items-container'>
+          <h2>Cart Items:</h2>
+          {state.map((item, index) => (
+            <div className='cart-item' key={index}>
+              <div className='cart-item-image'>
+                <img src={item.image} alt={`Item ${item.id}`} />
+              </div>
+              <div className='cart-item-details'>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <p>Price: Ksh{item.price}</p>
+                <div className='quantity'>
+                  <button onClick={() => handleIncrease(item)}>+</button>
+                  <p>{item.quantity}</p>
+                  <button onClick={() => handleDecrease(item)}>-</button>
+                </div>
+                <IoMdTrash onClick={() => handleRemove(item)} />
+              </div>
+            </div>
+          ))}
+          <div className='total'>
+            <h2>Total: Ksh{total}</h2>
+            <button>Checkout: Ksh{total}</button>
+          </div>
+          <button className='cart-btn'>
+            <Link to='/'>Continue Shopping</Link>
+          </button>
         </div>
       )}
     </div>

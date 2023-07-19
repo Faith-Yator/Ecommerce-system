@@ -4,11 +4,12 @@
   }
   
   .banner {
-    width: 90%;
-    border: 1px solid #ccc;
+    width: 97%;
+    /* border: 1px solid #ccc; */
+    background-color: ghostwhite;
     border-radius: 5px;
     padding: 16px;
-   background-image: url(./phone/1.jpg);
+   background-image: url('.\assets\1 (17).jpg');
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 16px;
     height: 50%;
@@ -44,7 +45,10 @@
     font-size: 24px;
     margin-bottom: 20px;
   }
-  
+  h2{
+    color: orangered;
+    padding-top: 10px;
+  }
   .card{
     display: inline-block;
     width: 300px;

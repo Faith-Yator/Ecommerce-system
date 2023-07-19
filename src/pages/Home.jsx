@@ -138,7 +138,7 @@ KSh 1,999</p>
         <div className="card">
           <img src=".\network\1 (3).jpg" alt="Product 2" />
           <h3>TP Link </h3>
-          <p>TP Link TL-WR840N 300Mbps 2.4GHz Wireless Router 4in1<br/>
+          <p>TP Link TL-WR840N 300Mbps 2.4GHz Wireless Router<br/>
 KSh 2,500</p>
           <button className="add-to-cart-button"onClick={() => handleCardClick('/Cart')}>Add to Cart</button>
         </div>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './delivery.css';
 
-function Delivery(){
+function Delivery() {
   const [users, setUsers] = useState([]);
-  const [newUser, setNewUser] = useState({ ProductName: '', OrderNumber: '', UserName: '' ,Location: ''});
+  const [newUser, setNewUser] = useState({ ProductName: '', OrderNumber: '', UserName: '', Location: '' });
 
   const handleInputChange = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -11,7 +12,14 @@ function Delivery(){
 
   const add = () => {
     setUsers([...users, newUser]);
-    setNewUser({  Username: '', Ordernumber: '',Productname: '',Location: ''});
+    setNewUser({ Username: '', OrderNumber: '', ProductName: '', Location: '' });
+  };
+
+  const navigate = useNavigate();
+
+  const redirectToPayment = () => {
+    // Add your logic or validations here if needed before redirecting
+    navigate('/payment'); // Replace '/payment' with the actual URL of the payment page
   };
 
   return (
@@ -28,7 +36,7 @@ function Delivery(){
         <tbody>
           {users.map((user, index) => (
             <tr key={index}>
-               <td>{user.Username}</td>
+              <td>{user.Username}</td>
               <td>{user.ProductName}</td>
               <td>{user.OrderNumber}</td>
               <td>{user.Location}</td>
@@ -38,7 +46,7 @@ function Delivery(){
       </table>
 
       <div className="form-container">
-      <input
+        <input
           type="text"
           name="UserName"
           placeholder="UserName"
@@ -59,18 +67,19 @@ function Delivery(){
           value={newUser.OrderNumber}
           onChange={handleInputChange}
         />
-       
-          <input
+
+        <input
           type="text"
           name="Location"
           placeholder="Location"
           value={newUser.Location}
           onChange={handleInputChange}
         />
-        <button onClick={add}>Add </button>
+        <button onClick={add}>Add</button>
+        <button onClick={redirectToPayment}>Go to Payment</button>
       </div>
     </div>
   );
-};
+}
 
 export default Delivery;

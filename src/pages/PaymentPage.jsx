@@ -21,7 +21,8 @@ function PaymentPage() {
   const onSubmit = (data) => {
     // Perform payment processing logic here
     console.log('Payment submitted:', data);
-    navigate('/');
+    alert('Payment successfully processed');
+    navigate('/logout');
     reset();
   };
 

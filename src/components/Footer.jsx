@@ -35,10 +35,10 @@ function Footer() {
           <a href='/'>
             <AiFillHome />  Home
           </a>
-          <a href='/'>
+          <a href='/signin'>
             < MdAccountCircle />Account
           </a>
-          <a href='/'>
+          <a href='/HelpCenter'>
             <BiHelpCircle /> Help
           </a>
         </div>

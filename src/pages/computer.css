@@ -1,60 +1,69 @@
+
 .computer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .card {
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 16px;
-  }
-  
-  .card-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .card-text {
-    margin-top: 8px;
-  }
-  
-  .card-button {
-    margin-top: 16px;
-    padding: 8px 16px;
-    background-color: orange;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: orangered;
-  }
-  .card:hover{
-    box-shadow: 0 4px 8px darkblue;
-  }
-  
-  .card-button:hover {
-    background-color:orangered;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .computer {
-      justify-content: flex-start;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .card {
-      width: 100%;
-      margin: 16px 0;
-    }
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+.cards:hover{
+  box-shadow: 0 4px 8px darkblue;
+}
+
+
+.cards {
+  width: 250px;
+  padding: 20px;
+  background-color:white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.cards:hover {
+  transform: translateY(-4px);
+}
+
+.cards .img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.cards .title h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.cards .description pre {
+  font-size: 14px;
+  color: #666;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.cards .next button {
+  padding: 8px 16px;
+  background-color:orange;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cards .next button:hover {
+  background-color: orangered;
+}
+
+/* Add more styles as needed for responsiveness */

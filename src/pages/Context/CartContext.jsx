@@ -1,32 +1,43 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer } from 'react';
 
 export const CartContext = createContext();
-export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
 
-  // Function to add an item to the cart
-  const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
-  };
-
-  // Function to remove an item from the cart
-  const removeFromCart = (itemId) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-  };
-
-  // Function to clear the cart
-  const clearCart = () => {
-    setCartItems([]);
-  };
-
-  // Value object containing the cart state and functions
-  const value = {
-    cartItems,
-    addToCart,
-    removeFromCart,
-    clearCart,
-  };
-
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD':
+      const tempState = state.filter((item) => item.id === action.payload.id);
+      if (tempState.length > 0) {
+        return state;
+      } else {
+        return [...state, action.payload];
+      }
+    case 'INCREASE':
+      return state.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+    case 'DECREASE':
+      return state.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      });
+    case 'REMOVE':
+      return state.filter((item) => item.id !== action.payload.id);
+    default:
+      return state;
+  }
 };
-export default CartProvider;
+
+export const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, []);
+
+  return (
+    <CartContext.Provider value={{ state, dispatch }}>
+      {children}
+    </CartContext.Provider>
+  );
+};

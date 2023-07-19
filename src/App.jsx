@@ -25,6 +25,7 @@ import TrackOrderPage from './pages/TrackorderPage'
 import FaqPage from './pages/Faq'
 import PaymentPage from './pages/PaymentPage'
 import AdminLogIn from './pages/Admin'
+import Logout from './pages/Logout'
 
 
 
@@ -62,6 +63,7 @@ function App () {
       <Route path='/trackorderpage' element={<TrackOrderPage/>}/>
       <Route path='/questions' element={<FaqPage/>}/>
       <Route path='/payment' element={<PaymentPage/>}/>
+      <Route path='/logout' element={<Logout/>}/>
            </Routes>
        
      <Footer/>

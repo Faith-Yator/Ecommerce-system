@@ -28,6 +28,16 @@ function FaqPage() {
       question: 'What if Im not available at the time of delivery?',
       answer: 'If you are not available at the time of delivery, the courier will usually leave a notification or attempt delivery again later. You can also contact the courier service to arrange an alternative delivery time.',
     },
+    {
+      id: 4,
+      question: 'What if Im not available at the time of delivery?',
+      answer: 'If you are not available at the time of delivery, the courier will usually leave a notification or attempt delivery again later. You can also contact the courier service to arrange an alternative delivery time.',
+    },
+    {
+      id: 5,
+      question: 'What if Im not available at the time of delivery?',
+      answer: 'If you are not available at the time of delivery, the courier will usually leave a notification or attempt delivery again later. You can also contact the courier service to arrange an alternative delivery time.',
+    },
    
   ];
 

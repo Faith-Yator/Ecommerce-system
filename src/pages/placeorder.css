@@ -1,13 +1,13 @@
 .card2 {
-    width: 90%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 16px;
-    background-image: url(".\help\delivery.png");
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 16px;
-    height: 100%;
-    animation: animate 16s ease-in-out infinite;
+        width: 90%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 16px;
+        height: 100%;
+        animation: animate 16s ease-in-out infinite;
+      
 
   }
   .card2:hover{

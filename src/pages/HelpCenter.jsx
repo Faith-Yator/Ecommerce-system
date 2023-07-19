@@ -50,6 +50,9 @@ function HelpCenter() {
           case 'printers':
             navigate('/printers');
             break;
+            case 'SignIn':
+            navigate('/signin');
+            break;
       // Add more cases for other pages as needed
       default:
         // If the search query doesn't match any predefined page, you can handle it accordingly
